@@ -12,23 +12,15 @@ Beat Sun Light  1st Single
 
   ¥500(税込み)  2018/8/29release
 
-
-
 \[収録内容]
 
-1.  ヘイトパンデミック
+1. ヘイトパンデミック
+2. 十人十色はアテにならない
+3. CR Beat Sun Light
 
-2.  十人十色はアテにならない
-
-3.  CR Beat Sun Light
-
-
-
-ライブ会場にて販売中。
+ライブ会場にて販売中。
 
 ライブ情報→https://twitter.com/Beat_Sun_Light
-
-
 
 Beat Sun Light ‐ CR Beat Sun Light 【MV】
 
