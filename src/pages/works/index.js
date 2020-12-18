@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '../../components/Layout'
-import WorksRoll from '../../components/WorksRoll'
+import Layout from '../../components/Layout';
+import WorksRoll from '../../components/WorksRoll';
 
 export default class WorksIndexPage extends React.Component {
   render() {
@@ -10,9 +10,9 @@ export default class WorksIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-10 is-offset-1">
+              <div className="column is-half is-offset-one-quarter">
                 <section className="section">
-                  <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                  <h2 className="title is-4 has-text-weight-bold is-bold-light">
                     Works
                   </h2>
                   <div className="container">
@@ -26,6 +26,6 @@ export default class WorksIndexPage extends React.Component {
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }

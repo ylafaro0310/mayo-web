@@ -1,42 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
-import { HTMLContent } from '../components/Content'
-import { IllustrationPostTemplate } from '../templates/illustration-post'
-import _ from 'lodash'
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, Link, StaticQuery } from 'gatsby';
+import _ from 'lodash';
+import Card from '../components/Card';
 class IllustrationsRoll extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     let category = posts.map(({node: post})=>(
       post.frontmatter.category
-    ))
-    category = _.uniq(category)
+    ));
+    category = _.uniq(category);
 
     return (
       <div className="columns is-multiline">
         {posts &&
-          category.map(c=>(
-            <div className="column is-10 is-offset-1">
-              <h2>{c}</h2>
-              {posts.map(({ node: post }) => (
-                post.frontmatter.category === c ?
-                <IllustrationPostTemplate
-                  content={post.html}
-                  contentComponent={HTMLContent}
-                  title={post.frontmatter.title}
-                  date={post.frontmatter.date}
-                  category={post.frontmatter.category}
-                />
-                : null
-              ))}
+          category.map((c,i)=>(
+            <div key={i} className="column is-one-third">
+              <Link to={'/illustrations/'+c}>
+                <Card image={posts.find(({ node: post }) =>(post.frontmatter.category === c)).node.frontmatter.thumbnail}>
+                  <div className="title is-5">{c}</div>
+                </Card>
+              </Link>
             </div>
           ))
         }
       </div>
-    )
+    );
   }
 }
 
@@ -46,7 +37,7 @@ IllustrationsRoll.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export default () => (
   <StaticQuery
@@ -68,6 +59,13 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 category
+                thumbnail {
+                  childImageSharp {
+                    fluid(maxWidth: 120, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
           }
@@ -76,4 +74,4 @@ export default () => (
     `}
     render={(data, count) => <IllustrationsRoll data={data} count={count} />}
   />
-)
+);

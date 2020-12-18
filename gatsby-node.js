@@ -1,13 +1,13 @@
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const _ = require('lodash');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage, createRedirect } = actions
+  const { createPage, createRedirect } = actions;
 
-  createRedirect({fromPath: '/', toPath: '/about'})
+  createRedirect({fromPath: '/', toPath: '/about'});
 
   return graphql(`
     {
@@ -20,6 +20,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               templateKey
+              category
             }
           }
         }
@@ -27,14 +28,14 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
+      result.errors.forEach(e => console.error(e.toString()));
+      return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(edge => {
-      const id = edge.node.id
+      const id = edge.node.id;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -45,21 +46,56 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
         },
-      })
-    })
-  })
-}
+      });
+    });
+    
+    let category = {};
+    posts.forEach((edge) => {
+      if (_.get(edge, 'node.frontmatter.category')) {
+        let templateKey = _.get(edge, 'node.frontmatter.templateKey');
+        if(templateKey){
+          if(!category[templateKey]){
+            category[templateKey] = [];
+          }
+          category[templateKey] = category[templateKey].concat(edge.node.frontmatter.category);
+        }
+      }
+    });
+    
+    Object.keys(category).forEach((key)=>{
+      category[key] = _.uniq(category[key]);
+      let categoryPath = '';
+      if(key=='illustration-post'){
+        categoryPath = '/illustrations/';
+      }
+      if(key=='work-post'){
+        categoryPath = '/works/';
+      }
+
+      category[key].forEach((cat) => {
+        createPage({
+          path: categoryPath + cat + '/',
+          component: path.resolve('src/templates/category.js'),
+          context: {
+            category: cat,
+            templateKey: key,
+          },
+        });
+      });
+    });
+  });
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  const { createNodeField } = actions;
+  fmImagesToRelative(node); // convert image paths for gatsby images
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
-    })
+    });
   }
-}
+};

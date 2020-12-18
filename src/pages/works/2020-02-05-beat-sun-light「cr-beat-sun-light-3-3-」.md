@@ -1,8 +1,9 @@
 ---
 templateKey: work-post
 title: Beat Sun Light「CR BEAT SUN LIGHT(3/3)」
+thumbnail: /img/image.png
 date: 2018-08-31T12:46:50.717Z
-category: ジャケット制作
+category: CDジャケット制作
 ---
 ![](/img/image.png)
 
