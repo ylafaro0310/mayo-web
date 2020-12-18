@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
 
 export const WorkPostTemplate = ({
   content,
@@ -13,7 +13,7 @@ export const WorkPostTemplate = ({
   category,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="section">
@@ -30,8 +30,8 @@ export const WorkPostTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 WorkPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -40,10 +40,10 @@ WorkPostTemplate.propTypes = {
   date: PropTypes.string,
   category: PropTypes.string,
   helmet: PropTypes.object,
-}
+};
 
 const WorkPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -60,16 +60,16 @@ const WorkPost = ({ data }) => {
         category={post.frontmatter.category}
       />
     </Layout>
-  )
-}
+  );
+};
 
 WorkPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
-export default WorkPost
+export default WorkPost;
 
 export const pageQuery = graphql`
   query WorkPostByID($id: String!) {
@@ -83,4 +83,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
