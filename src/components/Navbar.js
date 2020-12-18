@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
 const Navbar = class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
       navBarActiveClass: '',
-    }
+    };
   }
 
   toggleHamburger = () => {
@@ -21,64 +21,57 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
+            navBarActiveClass: 'is-active',
+          })
           : this.setState({
-              navBarActiveClass: '',
-            })
+            navBarActiveClass: '',
+          });
       }
-    )
+    );
   }
 
   render() {
     return (
-      <nav
-        className="navbar"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/about" className="navbar-item" title="Logo">
-              ぎゃらりーmayusan
-            </Link>
-            {/* Hamburger menu */}
+      <div>
+        <nav
+          className="navbar"
+          role="navigation"
+          aria-label="main-navigation"
+        >
+          <div className="container">
+            <div className="navbar-brand">
+              <Link to="/" className="force-center navbar-item" title="Logo">
+                染沁-shishi-
+              </Link>
+              {/* Hamburger menu */}
+              <div
+                className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+                data-target="navMenu"
+                onClick={() => this.toggleHamburger()}
+              >
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
             <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
+              id="navMenu"
+              className={`navbar-menu ${this.state.navBarActiveClass}`}
             >
-              <span />
-              <span />
-              <span />
+              <div className="navbar-start has-text-centered">
+                <Link className="navbar-item" to="/works">
+                  制作・コラボ
+                </Link>
+                <Link className="navbar-item" to="/illustrations">
+                  イラスト
+                </Link>
+              </div>            
             </div>
           </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/illustrations">
-                Illustrations
-              </Link>
-              <Link className="navbar-item" to="/works">
-                Works
-              </Link>
-              <Link className="navbar-item" to="/manga">
-                Manga
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-            </div>            
-          </div>
-        </div>
-      </nav>
-    )
+        </nav>
+      </div>
+    );
   }
-}
+};
 
-export default Navbar
+export default Navbar;
