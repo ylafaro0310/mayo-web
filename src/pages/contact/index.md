@@ -1,8 +1,7 @@
 ---
-templateKey: 'contact-page'
-path: /contact
+templateKey: contact-page
 title: Contact
 ---
 ご依頼や一緒に制作したい方は下記までご連絡ください。
 
-Gmail : yuuii.art.freedom@gmail.com
+Gmail : peea.mayo.nutt@gmail.com
