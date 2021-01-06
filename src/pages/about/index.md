@@ -3,7 +3,9 @@ templateKey: about-page
 title: About
 thumbnail: /img/about.png
 ---
-ましば
+**ましば**
+
+
 
 心に染み（沁み）渡るコンテンツを。
 
