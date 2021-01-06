@@ -1,5 +1,7 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import Logo from '../../static/img/sisiロゴ.png';
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -31,6 +33,7 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <nav
@@ -40,8 +43,8 @@ const Navbar = class extends React.Component {
         >
           <div className="container">
             <div className="navbar-brand">
-              <Link to="/" className="force-center navbar-item" title="Logo">
-                染沁-shishi-
+              <Link to="/" className="navbar-item" title="Logo">
+                <img src={Logo}/>
               </Link>
               {/* Hamburger menu */}
               <div
@@ -75,3 +78,15 @@ const Navbar = class extends React.Component {
 };
 
 export default Navbar;
+
+export const pageQuery = graphql`
+    query {
+        file: file(relativePath: {eq: "sisiロゴ.png"}) {
+            childImageSharp{
+                fluid(maxWidth: 200) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`;

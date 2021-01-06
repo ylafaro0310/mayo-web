@@ -3,7 +3,7 @@ import { graphql, Link, StaticQuery } from 'gatsby';
 import { HTMLContent } from '../components/Content';
 
 //import facebook from '../img/social/facebook.svg';
-//import instagram from '../img/social/instagram.svg';
+import instagram from '../img/social/instagram.svg';
 import twitter from '../img/social/twitter.svg';
 
 const Footer = class extends React.Component {
@@ -29,13 +29,13 @@ const Footer = class extends React.Component {
                 style={{ width: '1em', height: '1em' }}
               />
             </a>
-            {/* <a title="instagram" href="https://instagram.com">
+            <a title="instagram" href="https://instagram.com/ma_shiba_ma">
               <img
                 src={instagram}
                 alt="Instagram"
                 style={{ width: '1em', height: '1em' }}
               />
-            </a> */}
+            </a>
           </div>
         </section>
         <section className='section'>
