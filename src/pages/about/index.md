@@ -1,13 +1,16 @@
 ---
-templateKey: 'about-page'
-path: /about
+templateKey: about-page
 title: About
 thumbnail: /img/about.png
 ---
+ましば
 
-これまで描いたイラストなど
-つらつらと載せていきます。
 
-ごゆっくりどうぞ◎
 
-ついったー/@bass_mayo
+心に染み（沁み）渡るコンテンツを。
+
+illustration　/　design
+
+主にボールペン、油性色鉛筆、デジタル　好みます。
+
+つらつらと載せていきます。ごゆるりとどうぞ。
