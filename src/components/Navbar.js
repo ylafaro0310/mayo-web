@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import shop from '../img/shop.svg';
 import Logo from '../../static/img/sisiロゴ.png';
+import MediaQuery from 'react-responsive';
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -33,7 +35,18 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const Shop = (
+      <div className="shop-icon">
+        <a title="shop" href="https://suzuri.jp/pi_nuttu">
+          <img
+            src={shop}
+            alt="shop"
+            style={{ width: '1em', height: '1em' }}
+          />
+          <p>Shop</p>
+        </a>
+      </div>
+    );
     return (
       <div>
         <nav
@@ -45,6 +58,7 @@ const Navbar = class extends React.Component {
             <div className="navbar-brand">
               <Link to="/" className="navbar-item" title="Logo">
                 <img src={Logo}/>
+                <span style={{marginLeft: '5px'}}>染沁-shishi-</span>
               </Link>
               {/* Hamburger menu */}
               <div
@@ -56,6 +70,9 @@ const Navbar = class extends React.Component {
                 <span />
                 <span />
               </div>
+              <MediaQuery query="(max-width: 1024px)">
+                {Shop}
+              </MediaQuery>
             </div>
             <div
               id="navMenu"
@@ -68,8 +85,17 @@ const Navbar = class extends React.Component {
                 <Link className="navbar-item" to="/illustrations">
                   イラスト
                 </Link>
+                <Link className="navbar-item" to="/topics">
+                  トピック
+                </Link>
+                <Link className="navbar-item" to="/news">
+                  ニュース
+                </Link>
               </div>            
             </div>
+            <MediaQuery query="(min-width: 1024px)">
+              {Shop}
+            </MediaQuery>
           </div>
         </nav>
       </div>

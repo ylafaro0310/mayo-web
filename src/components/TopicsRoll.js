@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import _ from 'lodash';
-import Card from '../components/Card';
-class IllustrationsRoll extends React.Component {
+import Card from './Card';
+class TopicsRoll extends React.Component {
   render() {
     const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <div className="columns is-multiline">
@@ -25,7 +24,7 @@ class IllustrationsRoll extends React.Component {
   }
 }
 
-IllustrationsRoll.propTypes = {
+TopicsRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -36,10 +35,10 @@ IllustrationsRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query IllustrationsRollQuery {
+      query TopicsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "illustration-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "topic-post" } } }
         ) {
           edges {
             node {
@@ -66,6 +65,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <IllustrationsRoll data={data} count={count} />}
+    render={(data, count) => <TopicsRoll data={data} count={count} />}
   />
 );

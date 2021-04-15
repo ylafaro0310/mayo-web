@@ -12,30 +12,34 @@ const Footer = class extends React.Component {
     return (
       <div className="has-text-centered">
         <section className="section">
-          <div className="container column social">
-            <h2 className="title is-4 has-text-weight-bold is-bold-light">SNS</h2>
-            {/* <a title="facebook" href="https://facebook.com">
+          <div className="container social">
+            <div className="columns">
+              <div className="column">
+                <h2 className="title is-4 has-text-weight-bold is-bold-light">SNS</h2>
+                {/* <a title="facebook" href="https://facebook.com">
               <img
                 src={facebook}
                 alt="Facebook"
                 style={{ width: '1em', height: '1em' }}
               />
             </a> */}
-            <a title="twitter" href="https://twitter.com/pi_nuttu">
-              <img
-                className="fas fa-lg"
-                src={twitter}
-                alt="Twitter"
-                style={{ width: '1em', height: '1em' }}
-              />
-            </a>
-            <a title="instagram" href="https://instagram.com/ma_shiba_ma">
-              <img
-                src={instagram}
-                alt="Instagram"
-                style={{ width: '1em', height: '1em' }}
-              />
-            </a>
+                <a title="twitter" href="https://twitter.com/pi_nuttu">
+                  <img
+                    className="fas fa-lg"
+                    src={twitter}
+                    alt="Twitter"
+                    style={{ width: '1em', height: '1em' }}
+                  />
+                </a>
+                <a title="instagram" href="https://instagram.com/ma_shiba_ma">
+                  <img
+                    src={instagram}
+                    alt="Instagram"
+                    style={{ width: '1em', height: '1em' }}
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
         <section className='section'>
@@ -45,18 +49,19 @@ const Footer = class extends React.Component {
           </div>   
         </section>  
         <footer className="footer">
-          <div className="content has-text-centered">
+          <div className="section content has-text-centered">
             <div className="container">
-              
-              <div className="content has-text-centered footer-title">
+              <div className="columns">
+                <div className="column">
+                  <div className="content has-text-centered footer-title">
                 染沁-shishi-
-                {/* <img
+                    {/* <img
                   src={logo}
                   alt="Kaldi"
                   style={{ width: '14em', height: '10em' }}
                 /> */}
-              </div>       
-              <div className="columns">
+                  </div>       
+                </div>
                 <div className="column is-half is-offset-one-quarter">
                   <section className="menu">
                     <ul className="menu-list">

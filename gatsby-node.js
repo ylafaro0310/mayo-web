@@ -65,23 +65,19 @@ exports.createPages = ({ actions, graphql }) => {
     Object.keys(category).forEach((key)=>{
       category[key] = _.uniq(category[key]);
       let categoryPath = '';
-      if(key=='illustration-post'){
-        categoryPath = '/illustrations/';
-      }
       if(key=='work-post'){
         categoryPath = '/works/';
-      }
-
-      category[key].forEach((cat) => {
-        createPage({
-          path: categoryPath + cat + '/',
-          component: path.resolve('src/templates/category.js'),
-          context: {
-            category: cat,
-            templateKey: key,
-          },
+        category[key].forEach((cat) => {
+          createPage({
+            path: categoryPath + cat + '/',
+            component: path.resolve('src/templates/category.js'),
+            context: {
+              category: cat,
+              templateKey: key,
+            },
+          });
         });
-      });
+      }
     });
   });
 };
