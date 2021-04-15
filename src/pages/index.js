@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import Card from '../components/Card';
 import { HTMLContent } from '../components/Content';
 import Img from 'gatsby-image';
-import bulmaCarousel from 'bulma-carousel/dist/js/bulma-carousel.min.js';
 import Slider from 'react-slick';
 import { StaticImage } from 'gatsby-plugin-image';
 
