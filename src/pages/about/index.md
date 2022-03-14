@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About
-thumbnail: /img/aikon.jpg
+thumbnail: /img/sio.jpg
 ---
 **ましば**
 
