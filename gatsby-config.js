@@ -4,9 +4,6 @@ module.exports = {
     description:
       "",
   },
-  flags: {
-    PARALLEL_QUERY_RUNNING: true
-  },
   plugins: [
     {
       resolve: "gatsby-plugin-google-gtag",
