@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
 
 export const NewsPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
@@ -11,9 +11,9 @@ export const NewsPageTemplate = ({ title, content, contentComponent }) => {
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
-          <div className="column is-half is-offset-one-quarter">
+          <div className="column is-6 is-offset-3">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+              <h2 className="title is-size-3 has-text-centered has-text-weight-bold is-bold-light">
                 {title}
               </h2>
               <PageContent className="content has-text-left" content={content} />

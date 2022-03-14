@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import { HTMLContent } from '../components/Content';
+import React from "react";
+import { graphql, Link, StaticQuery } from "gatsby";
+import { HTMLContent } from "../components/Content";
 
 //import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
+import instagram from "../img/social/instagram.svg";
+import twitter from "../img/social/twitter.svg";
 
 const Footer = class extends React.Component {
   render() {
@@ -28,14 +28,14 @@ const Footer = class extends React.Component {
                     className="fas fa-lg"
                     src={twitter}
                     alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
+                    style={{ width: "1em", height: "1em" }}
                   />
                 </a>
                 <a title="instagram" href="https://instagram.com/ma_shiba_ma">
                   <img
                     src={instagram}
                     alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
+                    style={{ width: "1em", height: "1em" }}
                   />
                 </a>
               </div>
@@ -49,42 +49,40 @@ const Footer = class extends React.Component {
           </div>   
         </section>  
         <footer className="footer">
-          <div className="section content has-text-centered">
+          <div className="section content">
             <div className="container">
+              <div className="content footer-title">
+                    染沁-shishi-
+              </div>       
               <div className="columns">
-                <div className="column">
-                  <div className="content has-text-centered footer-title">
-                染沁-shishi-
-                    {/* <img
-                  src={logo}
-                  alt="Kaldi"
-                  style={{ width: '14em', height: '10em' }}
-                /> */}
-                  </div>       
-                </div>
                 <div className="column is-half is-offset-one-quarter">
                   <section className="menu">
-                    <ul className="menu-list">
+                    <ul className="m-0 has-text-centered" style={{listStyle: "none"}}>
                       <li>
-                        <Link className="navbar-item" to="/works">
+                        <Link className="has-text-black" to="/works">
                           制作・コラボ
                         </Link>
                       </li>
                       <li>
-                        <Link className="navbar-item" to="/illustrations">
+                        <Link className="has-text-black" to="/illustrations">
                           イラスト
                         </Link>
                       </li>
-                      {/* <li>
-                        <a
-                          className="navbar-item"
-                          href="/admin/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Admin
-                        </a>
-                      </li> */}
+                      <li>
+                        <Link className="has-text-black" to="/topics">
+                          トピック
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="has-text-black" to="/blog">
+                          ブログ
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="has-text-black" to="/news">
+                        ニュース
+                        </Link>
+                      </li>
                     </ul>
                   </section>
                 </div>

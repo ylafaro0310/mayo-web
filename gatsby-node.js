@@ -1,13 +1,13 @@
-const _ = require('lodash');
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+const _ = require("lodash");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage, createRedirect } = actions;
 
-  createRedirect({fromPath: '/', toPath: '/about'});
+  createRedirect({fromPath: "/", toPath: "/about"});
 
   return graphql(`
     {
@@ -51,8 +51,8 @@ exports.createPages = ({ actions, graphql }) => {
     
     let category = {};
     posts.forEach((edge) => {
-      if (_.get(edge, 'node.frontmatter.category')) {
-        let templateKey = _.get(edge, 'node.frontmatter.templateKey');
+      if (_.get(edge, "node.frontmatter.category")) {
+        let templateKey = _.get(edge, "node.frontmatter.templateKey");
         if(templateKey){
           if(!category[templateKey]){
             category[templateKey] = [];
@@ -64,13 +64,13 @@ exports.createPages = ({ actions, graphql }) => {
     
     Object.keys(category).forEach((key)=>{
       category[key] = _.uniq(category[key]);
-      let categoryPath = '';
-      if(key=='work-post'){
-        categoryPath = '/works/';
+      let categoryPath = "";
+      if(key=="work-post"){
+        categoryPath = "/works/";
         category[key].forEach((cat) => {
           createPage({
-            path: categoryPath + cat + '/',
-            component: path.resolve('src/templates/category.js'),
+            path: categoryPath + cat + "/",
+            component: path.resolve("src/templates/category.js"),
             context: {
               category: cat,
               templateKey: key,
@@ -86,10 +86,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   //fmImagesToRelative(node); // convert image paths for gatsby images
 
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === "MarkdownRemark") {
     const value = createFilePath({ node, getNode });
     createNodeField({
-      name: 'slug',
+      name: "slug",
       node,
       value,
     });

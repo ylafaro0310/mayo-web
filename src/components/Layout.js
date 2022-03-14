@@ -1,10 +1,10 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import './all.scss';
-import useSiteMetadata from './SiteMetadata';
-import { withPrefix } from 'gatsby';
+import React from "react";
+import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import "./all.scss";
+import useSiteMetadata from "./SiteMetadata";
+import { withPrefix } from "gatsby";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -23,7 +23,7 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="icon"
           type="image/png"
-          href={`${withPrefix('/')}img/sisiロゴ.png`}
+          href={`${withPrefix("/")}img/sisiロゴ.png`}
           sizes="32x32"
         />
         {/* <link
@@ -45,11 +45,11 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
+          content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
       <Navbar />
-      <div className="has-text-centered">{children}</div>
+      <div className="">{children}</div>
       <Footer />
     </div>
   );

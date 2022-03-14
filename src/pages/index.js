@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
-import Card from '../components/Card';
-import { HTMLContent } from '../components/Content';
-import Img from 'gatsby-image';
-import Slider from 'react-slick';
-import { StaticImage } from 'gatsby-plugin-image';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import Card from "../components/Card";
+import { HTMLContent } from "../components/Content";
+import Img from "gatsby-image";
+import Slider from "react-slick";
+import { StaticImage } from "gatsby-plugin-image";
 
 class Index extends React.Component {
   constructor(props){
@@ -24,12 +24,23 @@ class Index extends React.Component {
     return (
       <Layout>
         <div>
-          <StaticImage src={'../img/HP2.png'} alt="top"/>
+          <StaticImage src={"../img/HP2.png"} alt="top"/>
         </div>
         <section className="section">
           <div className="columns">
+            <div className="column"/>
+            <div className="column is-one-third">
+              <h2 className="title is-4 has-text-centered has-text-weight-bold is-bold-light">プロフィール</h2>
+              <Img className="image is-128x128 has-image-centered" fluid={data.about.frontmatter.thumbnail.childImageSharp.fluid}/>
+              <HTMLContent content={data.about.html}/>
+            </div>
+            <div className="column"/>
+          </div>
+        </section>
+        <section className="section">
+          <div className="columns">
             <div className="column is-offset-one-third is-one-third">
-              <h2 className="title is-4 has-text-weight-bold is-bold-light">PickUp</h2>
+              <h2 className="title is-4 has-text-centered has-text-weight-bold is-bold-light">PickUp</h2>
               <Slider {...settings}>   
                 {data.topics.edges.slice(0,3).map(({node},i)=>(
                   <div key={i} className="column is-one-third">
@@ -48,16 +59,28 @@ class Index extends React.Component {
           <section className="section">
             <div className="columns">
               <div className="column is-half is-offset-one-quarter">
-                <h2 className="title is-4 has-text-weight-bold is-bold-light">プロフィール</h2>
-                <Img className="image is-128x128 has-image-centered" fluid={data.about.frontmatter.thumbnail.childImageSharp.fluid}/>
-                <HTMLContent content={data.about.html}/>
+                <h2 className="title is-4 has-text-weight-bold is-bold-light">イラスト</h2>
+                <div className="columns">
+                  {data.illustrations.edges.slice(0,3).map(({node},i)=>(
+                    <div key={i} className="column is-one-third">
+                      <Link to={node.fields.slug}>
+                        <Card image={node.frontmatter.thumbnail}>
+                          {node.frontmatter.title}
+                        </Card>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+                <Link to="/illustrations">
+                  <button className="button is-black">{"詳しく見る >"}</button>
+                </Link>
               </div>
             </div>
           </section>
           <section className="section">
             <div className="columns">
               <div className="column is-half is-offset-one-quarter">
-                <h2 className="title is-4 has-text-weight-bold is-bold-light">作品・コラボ</h2>
+                <h2 className="title is-4 has-text-weight-bold is-bold-light">制作・コラボ</h2>
                 <div className="columns">
                   {data.works.edges.slice(0,3).map(({node},i)=>(
                     <div key={i} className="column is-one-third">
@@ -70,7 +93,7 @@ class Index extends React.Component {
                   ))}
                 </div>
                 <Link to="/works">
-                  <button className="button is-black">{'詳しく見る >'}</button>
+                  <button className="button is-black">{"詳しく見る >"}</button>
                 </Link>
               </div>
             </div>
@@ -100,6 +123,36 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 120, quality: 100) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    illustrations: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "illustration-post" } } }
+      sort: 
+    	{
+        fields: frontmatter___date, 
+        order: DESC
+      }
+    ){
+      edges{
+        node{
+          id
+          html
+          fields{
+            slug
+          }
+          frontmatter{
+            title
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 120, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

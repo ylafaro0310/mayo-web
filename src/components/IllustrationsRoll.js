@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import _ from 'lodash';
-import Card from '../components/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, Link, StaticQuery } from "gatsby";
+import _ from "lodash";
+import Card from "../components/Card";
 class IllustrationsRoll extends React.Component {
   render() {
     const { data } = this.props;
@@ -11,7 +11,7 @@ class IllustrationsRoll extends React.Component {
     return (
       <div className="columns is-multiline">
         {data.allMarkdownRemark.edges.map(({node},i)=>(
-          <div key={i} className="column is-one-third">
+          <div key={i} className="column is-one-quarter">
             <Link to={node.fields.slug}>
               <Card image={node.frontmatter.thumbnail}>
                 {node.frontmatter.title}

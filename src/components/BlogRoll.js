@@ -2,19 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link, StaticQuery } from "gatsby";
 import _ from "lodash";
-import Card from "./Card";
-class TopicsRoll extends React.Component {
+import BlogPost from "./BlogPost";
+class BlogRoll extends React.Component {
   render() {
     const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <div className="columns is-multiline">
+      <div className="">
+        {data.allMarkdownRemark.edges.count == 0 && "まだブログが投稿されていません。"}
         {data.allMarkdownRemark.edges.map(({node},i)=>(
-          <div key={i} className="column is-one-third">
+          <div key={i} className="">
             <Link to={node.fields.slug}>
-              <Card image={node.frontmatter.thumbnail}>
-                {node.frontmatter.title}
-              </Card> 
+              <BlogPost image={node.frontmatter.thumbnail}>
+                <div className="title is-4 has-text-black">
+                  {node.frontmatter.title}
+                </div>
+                <div className="has-text-black mb-2">
+                  {node.excerpt}
+                </div>
+                <div className="has-text-black">
+                  {node.frontmatter.date}
+                </div>
+              </BlogPost> 
             </Link>
           </div>
         ))
@@ -24,7 +34,7 @@ class TopicsRoll extends React.Component {
   }
 }
 
-TopicsRoll.propTypes = {
+BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -35,22 +45,23 @@ TopicsRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query TopicsRollQuery {
+      query BlogRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "topic-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
         ) {
           edges {
             node {
               id
               html
+              excerpt(truncate: true)
               fields {
                 slug
               }
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "YYYY/MM/DD")
                 category
                 thumbnail {
                   childImageSharp {
@@ -65,6 +76,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <TopicsRoll data={data} count={count} />}
+    render={(data, count) => <BlogRoll data={data} count={count} />}
   />
 );

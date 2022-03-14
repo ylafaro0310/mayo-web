@@ -1,6 +1,6 @@
 ---
 templateKey: news-page
-title: News
+title: ニュース
 ---
 **NEW‼**
 

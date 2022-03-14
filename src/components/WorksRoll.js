@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import { HTMLContent } from '../components/Content';
-import { WorkPostTemplate } from '../templates/work-post';
-import _ from 'lodash';
-import Card from '../components/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, Link, StaticQuery } from "gatsby";
+import { HTMLContent } from "../components/Content";
+import { WorkPostTemplate } from "../templates/work-post";
+import _ from "lodash";
+import Card from "../components/Card";
 
 class WorksRoll extends React.Component {
   render() {
@@ -20,8 +20,8 @@ class WorksRoll extends React.Component {
       <div className="columns is-multiline">
         {posts &&
           category.map((c,i)=>(
-            <div key={i} className="column is-one-third">
-              <Link to={'/works/'+c}>
+            <div key={i} className="column is-one-quarter">
+              <Link to={"/works/"+c}>
                 <Card image={posts.find(({ node: post }) =>(post.frontmatter.category === c)).node.frontmatter.thumbnail}>
                   <div className="title is-5">{c}</div>
                 </Card>

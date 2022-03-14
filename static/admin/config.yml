@@ -1,3 +1,4 @@
+local_backend: true
 backend:
   name: git-gateway
   branch: master
@@ -12,8 +13,20 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "blog"
+    label: "ブログ"
+    folder: "src/pages/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
   - name: "illustrations"
-    label: "Illustrations"
+    label: "イラスト"
     folder: "src/pages/illustrations"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -26,7 +39,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "works"
-    label: "Works"
+    label: "制作・コラボ"
     folder: "src/pages/works"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -39,7 +52,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "topics"
-    label: "topics"
+    label: "トピック"
     folder: "src/pages/topics"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -56,7 +69,7 @@ collections:
     label: "Pages"
     files:
       - file: "src/pages/about/index.md"
-        label: "About"
+        label: "プロフィール"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
@@ -64,14 +77,14 @@ collections:
           - {label: "Thumbnail", name: "thumbnail", widget: "image"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/news/index.md"
-        label: "News"
+        label: "ニュース"
         name: "news"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/contact/index.md"
-        label: "Contact"
+        label: "お問い合わせ"
         name: "contact"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}

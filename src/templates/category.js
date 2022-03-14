@@ -1,7 +1,7 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Card from '../components/Card';
-import Layout from '../components/Layout';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Card from "../components/Card";
+import Layout from "../components/Layout";
 
 const CategoryContent = ({data,pageContext})=>(
   <div className="columns is-multiline">

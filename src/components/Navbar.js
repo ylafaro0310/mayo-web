@@ -1,16 +1,16 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
-import shop from '../img/shop.svg';
-import Logo from '../../static/img/sisiロゴ.png';
-import MediaQuery from 'react-responsive';
+import React from "react";
+import { graphql } from "gatsby";
+import { Link } from "gatsby";
+import shop from "../img/shop.svg";
+import Logo from "../../static/img/sisiロゴ.png";
+import MediaQuery from "react-responsive";
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: false,
-      navBarActiveClass: '',
+      navBarActiveClass: "",
     };
   }
 
@@ -25,14 +25,14 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-            navBarActiveClass: 'is-active',
+            navBarActiveClass: "is-active",
           })
           : this.setState({
-            navBarActiveClass: '',
+            navBarActiveClass: "",
           });
       }
     );
-  }
+  };
 
   render() {
     const Shop = (
@@ -41,7 +41,7 @@ const Navbar = class extends React.Component {
           <img
             src={shop}
             alt="shop"
-            style={{ width: '1em', height: '1em' }}
+            style={{ width: "1em", height: "1em" }}
           />
           <p>Shop</p>
         </a>
@@ -58,7 +58,7 @@ const Navbar = class extends React.Component {
             <div className="navbar-brand">
               <Link to="/" className="navbar-item" title="Logo">
                 <img src={Logo}/>
-                <span style={{marginLeft: '5px'}}>染沁-shishi-</span>
+                <span style={{marginLeft: "5px"}}>染沁-shishi-</span>
               </Link>
               {/* Hamburger menu */}
               <div
@@ -78,7 +78,7 @@ const Navbar = class extends React.Component {
               id="navMenu"
               className={`navbar-menu ${this.state.navBarActiveClass}`}
             >
-              <div className="navbar-start has-text-centered">
+              <div className="navbar-start">
                 <Link className="navbar-item" to="/works">
                   制作・コラボ
                 </Link>
@@ -87,6 +87,9 @@ const Navbar = class extends React.Component {
                 </Link>
                 <Link className="navbar-item" to="/topics">
                   トピック
+                </Link>
+                <Link className="navbar-item" to="/blog">
+                  ブログ
                 </Link>
                 <Link className="navbar-item" to="/news">
                   ニュース

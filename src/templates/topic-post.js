@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
 
 export const TopicPostTemplate = ({
   content,
@@ -17,10 +17,10 @@ export const TopicPostTemplate = ({
 
   return (
     <section className="section">
-      {helmet || ''}
+      {helmet || ""}
       <div className="container content">
         <div className="columns">
-          <div className="column is-10 is-offset-1">
+          <div className="column is-8 is-offset-2">
             <h1 className="title is-size-4 has-text-weight-bold is-bold-light">
               {title}
             </h1>
