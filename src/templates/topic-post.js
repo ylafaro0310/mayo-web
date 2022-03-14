@@ -51,7 +51,7 @@ const TopicPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | トピック">
             <title>{`${post.frontmatter.title}`}</title>
           </Helmet>
         }

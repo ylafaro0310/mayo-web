@@ -51,7 +51,7 @@ const WorkPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | 制作・コラボ">
             <title>{`${post.frontmatter.title}`}</title>
           </Helmet>
         }

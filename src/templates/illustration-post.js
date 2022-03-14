@@ -51,7 +51,7 @@ const IllustrationPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | イラスト">
             <title>{`${post.frontmatter.title}`}</title>
           </Helmet>
         }
