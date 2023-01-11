@@ -21,7 +21,7 @@
         "gatsby-remark-images": "^6.9.0",
         "gatsby-remark-relative-images": "^2.0.2",
         "gatsby-source-filesystem": "^4.9.0",
-        "gatsby-transformer-remark": "^5.9.0",
+        "gatsby-transformer-remark": "^5.25.1",
         "gatsby-transformer-sharp": "^4.9.0",
         "lmdb-store": "^1.6.14",
         "lodash": "^4.17.21",
